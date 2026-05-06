@@ -1,0 +1,6 @@
+- Name: play-01
+  Hosts: web #which hosts your ansible want to connect
+  Tasks: #list of tasks / modules/collections
+  -Name: ping the server
+   ansible.builtin.ping:
+
