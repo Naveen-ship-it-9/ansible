@@ -1,0 +1,21 @@
+- Name: paly-01
+  Hosts: web
+  Tasks:
+  - Name: paly-01
+    ansible.builting.debug:
+    #if we give like this then by default it print hello world if u need to print any msg then u need to meantion like below 
+
+- Name: paly-01
+  Hosts: web
+  Tasks:
+  - Name: play-01 and task-01
+    ansible.builting.debug:
+    msg: "This is play-01 and Task-01"
+- Name: paly-02
+  Hosts: web
+  Tasks:
+  - Name: paly-02 and task-02
+    ansible.builting.debug:
+    msg: "This is paly-02 and Task-02"
+    
+
