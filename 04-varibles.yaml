@@ -7,5 +7,5 @@
   Task:
   - Name: print the infromation
     absibleL.builtin.debug:
-    msg: "Hi i am learning: {{Course}},Duration: {{Duration}},Trainer: {{Trainer}}"
-    
+      msg: "Hi i am learning: {{Course}},Duration: {{Duration}},Trainer: {{Trainer}}"
+
