@@ -1,0 +1,11 @@
+- Name: varibles to print
+  Hosts: web
+  vars:
+    course: "Devops with AWS"
+    Duration: "120HRS"
+    Trainer: "Naveen"
+  Task:
+  - Name: print the infromation
+    absibleL.builtin.debug:
+    msg: "Hi i am learning: {{Course}},Duration: {{Duration}},Trainer: {{Trainer}}"
+    

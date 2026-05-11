@@ -1,0 +1,24 @@
+- Name: Nginx install and run
+  Host: wed
+  become: Yes
+  Tasks:
+  - Name: Install Nginx
+    ansible.builtin.package:
+    Name: Nginx
+    sate: Present
+  - Name: run Nginx
+    ansible.builtin.service:
+    Name: Nginx
+    sate: started
+    enable: Yes
+- Name: install and run my sql
+  Host: web
+  Tasks:
+  - Name: install mysql
+    ansibe.builtin:package:
+    Name: mysql
+    sate: install
+  - Name: run mysql
+    ansible.builtin.service:
+    sate: started
+    enable: Yes
