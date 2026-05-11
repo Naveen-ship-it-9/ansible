@@ -16,6 +16,6 @@
   Tasks:
   - Name: paly-02 and task-02
     ansible.builtin.debug:
-    msg: "This is paly-02 and Task-02"
+    msg: "This is paly-02 and Task-02."
 
 
