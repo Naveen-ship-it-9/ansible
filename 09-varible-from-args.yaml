@@ -1,0 +1,7 @@
+- Name: varibles to print
+  Hosts:
+  Tasks:
+    - Name: print the infromation
+      ansible.builit.debug:
+        mrg: "Hello {{Name}}, Good {{Greeting}}"
+        
