@@ -1,6 +1,6 @@
 - Name: varibles to print
   Hosts: web
-  vars:
+  vars: #paly level all Tasks in this play have access to this
     course: "devops with AWS"
     Duration: "140HRS"
     Trainer: "Naveen"
@@ -9,8 +9,11 @@
     ansible.builtin.debug:
       msg: "Hi, i am learning: {{course}},Duration: {{Duration}}, Trainer: {{Trainer}}"
   - Name: print infromation again
-    vars:
+    vars: #task level varibles 
       course: "Ansible"
+    ansible.builtin.debug:
+      msg: "Hi, i am learning: {{course}},Duration: {{Duration}}, Trainer: {{Trainer}}"
+  - Name: print the infromation
     ansible.builtin.debug:
       msg: "Hi, i am learning: {{course}},Duration: {{Duration}}, Trainer: {{Trainer}}"
     
