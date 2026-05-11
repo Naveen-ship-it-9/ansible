@@ -21,4 +21,4 @@
   - Name: run mysql
     ansible.builtin.service:
     sate: started
-    enable: Yes
+    enable: No
