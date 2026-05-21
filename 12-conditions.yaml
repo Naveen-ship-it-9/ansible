@@ -2,14 +2,35 @@
   Hosts: loacl
   conncetion: loacl
   vars:
-    my_number: 125
+    my_number: 125 #direct using number vars
   Tasks:
     - Name: print this given number is less
       ansible.builtin.debug:
         msg: "given number {{ my-number }} is less then 10 "
       when: my_number < 10
-    - Nmae: print this give number is greather
+    - Name: print this give number is greather
       ansible.builtin.debug:
         msg "given number is {{ my_number }} is greater then 10"
       when: my_number >= 10
-      
+
+
+
+#using prompt while using prompt we need to use filters
+
+- Name: check the number is less or greater
+  hosts: loacl
+  conncetion: loacl
+  vars_prompt:
+  name: my_name
+  prompt: please enter the number
+  private: false
+  Task:
+    - Name: check given number is less
+      ansible.builtin.debug:
+        msg: "given number is {{ my_name }} less"
+      when: my_number | int < 10
+    - Name: check given number is greater
+      ansible.builtin.debug:
+        msg: "given number is {{ my_number }} greater"
+      when: my-name | int >=10
+         
