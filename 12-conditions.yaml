@@ -1,0 +1,15 @@
+- Name: check a number is less than 10 or not
+  Hosts: loacl
+  conncetion: loacl
+  vars:
+    my_number: 125
+  Tasks:
+    - Name: print this given number is less
+      ansible.builtin.debug:
+        msg: "given number {{ my-number }} is less then 10 "
+      when: my_number < 10
+    - Nmae: print this give number is greather
+      ansible.builtin.debug:
+        msg "given number is {{ my_number }} is greater then 10"
+      when: my_number >= 10
+      
