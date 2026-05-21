@@ -1,0 +1,26 @@
+- Name: varibles to print diff ways
+  Hosts: web
+  vars:
+    course: "devops with AWS from play level"
+    Duration: "120HRS"
+    Trainer: "naveen"
+  vars_files:
+    vars.yaml
+  vars_prompt:
+    - Name: "Course"
+      prompt: please enter the course name"
+    - Name: "Duration"
+      prompt: please enter the duration name"
+    - Name: "Trainer"
+      prompt: please enter the Trainer name"
+    
+  Tasks:
+   - Name: print the infromation
+     vars:
+      course: "devops with AWS from Task level"
+      Duration: "100HRS"
+      Trainer: "Naveen"
+     ansible.builit.debug:
+      msg: "Hi, i am learning {{Course}}, Duration: {{Duration}}, Trainer:{{Trainer}}"
+
+

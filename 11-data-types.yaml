@@ -1,0 +1,19 @@
+- Name: devops course inforamtiom
+  hosts: loacl
+  connection: yes
+  course: "Devops with aws" #string
+  duration: "120" #number(int,flot)
+  Topics:
+    - linux
+    - shell
+    - ansible
+    - Terraform
+  live: True
+  Tools: #map/dictionary
+    ci:jenkins
+    cm:ansible
+    cloud:aws
+  Task:
+    - name: print the course inforamtiom
+      ansible.builit.debug:
+        mag: "Hi i am learing {{ course }},with duration{{ duration }},Topics are{{ Topics }},and live {{ live }},tools are {{ Tools }}"
