@@ -6,14 +6,14 @@
       ansible.builtin.debug:
         msg: "facts are {{ ansible_facts }}"
 
-    - Name: insatlling Nginx with redhat
+    - Name: insatlling Nginx if redhat
       ansible.builtin.dnf:
         name: nginx
         state: Present
         enable: yes
       when: ansible_os_family == "RedHat"
    
-    - Name: installing nginx with vbuntu
+    - Name: installing nginx if vbuntu
       ansible.builtin.apt:
         name: nginx
         state: Present

@@ -1,5 +1,6 @@
 - Name: demo loops
   Hosts: web
+  become: yes
   Tasks:
     - Name: print names
       ansible.builtin.debug:
@@ -10,4 +11,33 @@
       - charan
       - reddy
 
-     
+# with out loops
+# we can not right like this bcz wrong name is just for understanding purpose it can not attempt 
+- Name: with out loops
+  Hosts: loacl
+  conncetion: loacl
+  Tasks:
+    - Name: print names
+      ansible.builitin.debug:
+      Name: Naveen
+        msg: "hello {{ Name }}"
+      Name: reddy
+      ansible.builitin.debug:
+        msg: "hello {{ Name }}"
+      
+- Name: with out loops
+  Hosts: loacl
+  connection: loacl
+  Tasks: 
+    - Name: print names
+      ansible.builtin.debug:
+        msg: "Hello Naveen"
+    - Name: print 2nd name
+      ansible.builtin.debug:
+        msg: "helo reddy"
+    - Name: print 3rd name
+      ansible.builtin.debug:
+        msg: "hello joji"
+
+
+

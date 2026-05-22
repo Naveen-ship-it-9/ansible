@@ -1,0 +1,43 @@
+- Name: list varibles using loops
+  Hosts: local
+  connection: local
+  vars:
+      Names:
+        - naveen
+        - redddy
+        - joji
+        - venu
+        - anandarao
+  Tasks:
+    - Name: print names with using vars and loops
+      ansible.builtin.debug:
+        msg: "Heloo {{ item }}"
+      loop: "{{ Name }}"
+
+
+- Name: list vars using prompt
+  Hosts: local
+  connection: loacl
+  vars_prompt:
+    - Name: Trainer1
+      prompt: please enter the triner1 name
+      private: false
+    - Name: Trainer2
+      prompt: please enter the triner2 name
+      private: false
+  Tasks:
+    - Name: print names
+      ansible.builtin.debug:
+        msg: "heloo {{ item }}"
+      loop:
+      - "{{ Trainer1 }}"
+      - "{{ Trainer2 }}"
+
+# dont use like this loop: {{ name }} bcz its will it will surch like var for name       
+
+
+#var
+  #trainers:
+   # - trainer1
+    #- trainer2
+    #loop: "{{ trainers }}"
