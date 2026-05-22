@@ -1,0 +1,14 @@
+- Name: insatll packs with loops
+  Hosts: loacl
+  connect: loacl
+  Tasks:
+    - Name: insatll packs
+      anasible.builtin.package:
+        name: "insatlling: {{ item }}"
+        state: present
+      loops:
+      - nginx
+      - mysql
+      - postfix
+      - httpd
+
