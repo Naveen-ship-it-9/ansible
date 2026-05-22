@@ -1,5 +1,6 @@
 - Name: create nginx if not there
   Hosts: web
+  become: yes
   Tasks:
     - Name: print the statistics
       ansible.builtin.debug:
