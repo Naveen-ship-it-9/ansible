@@ -1,0 +1,22 @@
+- Name: create nginx if not there
+  Hosts: web
+  Tasks:
+    - Name: print the statistics
+      ansible.builtin.debug:
+        msg: "facts are {{ ansible_facts }}"
+
+    - Name: insatlling Nginx with redhat
+      ansible.builtin.dnf:
+        name: nginx
+        state: Present
+        enable: yes
+      when: ansible_os_family == "RedHat"
+   
+    - Name: installing nginx with vbuntu
+      ansible.builtin.apt:
+        name: nginx
+        state: Present
+        enable: yes
+      when: ansible_os_family == "Debian"
+      #vbuntu or debian both are same 
+      
