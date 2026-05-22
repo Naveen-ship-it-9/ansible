@@ -1,0 +1,19 @@
+- Name: checking user there or not if not thre create it
+  Hosts: web
+  Tasks:
+    - Name: create user if not there
+      ansible.builtin.command: id expense 
+      #if modules not avabile we use direct commands
+      register: user # here user is varible to get the o/p from above command
+      ignore_error: true
+    - Name: printing user info
+      ansible.builitin.debug:
+        msg: "user info: {{ user }}"
+    - Name: create user
+      ansible.builtin.command: useradd expense
+      when: user rc != 0
+
+    
+
+
+
