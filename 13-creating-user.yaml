@@ -1,0 +1,69 @@
+- Name: creating user
+  Hosts: web
+  become: yes
+  Tasks:
+    - Name: create user name and id group
+      ansible.builtin.user:
+      user name: Naveen
+      uid: 0464
+      group: developer
+      register: user_result
+      #if u need to print the o/p 
+    - Name: printing user info
+      ansible.builtin.debug:
+        msg: "printing user information {{ user }},{{ uid }},{{ group }}"
+        # above on enot wrok bcz we did not define vars we can right like this 
+        msg: "printing user info {{ user_result.user }}, {{ user_result.uid }}, {{ user_result.group }}"
+   
+    - Name: create user home directory
+      ansible.builtin.user:
+      user name: Naveen
+      create_home: yes
+
+    - Name: add user with shell bash and another group
+      ansible.builtin.user:
+      user name: Naveen1
+      uid: 5664
+      groups: developer,tester
+      append: yes # ge know in shell > isthi provies di poedi ani >> ela isthi podu like that place yes
+
+    - Name: remove user
+      ansible.builtin.user:
+      user name: Naveen1
+      state: abesent # state is mandatory 
+      remove: yes
+
+    
+    - Name: Create a 2048-bit SSH key for user Naveen in ~naveen/.ssh/id_rsa
+      ansible.builtin.user:
+      user name: Naveen
+      generate_ssh_key: yes
+      ssh_key_bits: 2048
+      ssh_key_file: .ssh/id_rsa
+
+    - Name: user accout expire
+      ansbile.builtin.user:
+      user name: Naveen
+      shell: /bin/bash
+      group: developer
+      expires: 12478965 
+
+    - Name: remove expire
+      ansible.builtin.user:
+      user name: Naveen
+      expires: -1 #never expire
+
+    - Name: set max and min expire date for password
+      ansible.builtin.user:
+      user name: Naveen
+      password_expire_max: 15
+      password_expire_min: 5
+
+    - Name: set number of warning days for password expiration
+      ansible.builtin.user:
+      user name: Naveen
+      password_expire_warn: 7  #Warns the user 7 days before expiry.
+      password_expire_account_disable: 30 #Disables the account 30 days after expiry.
+ 
+
+

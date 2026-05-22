@@ -33,4 +33,5 @@
       ansible.builtin.debug:
         msg: "given number is {{ my_number }} greater"
       when: my-name | int >=10
-         
+      
+      #when: my_name | int %2 == 0 for even 
