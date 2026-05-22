@@ -18,5 +18,4 @@
         state: Present
         enable: yes
       when: ansible_os_family == "Debian"
-      #vbuntu or debian both are same 
-      
+      #vbuntu or debian both are same.
