@@ -1,0 +1,20 @@
+- Name: manipulating strings
+  Hosts: web
+  Become: yes
+  Tasks:
+  - Name: convert to upper case
+    vars:
+      gretting: "hello Naveen"
+    ansible.builtin.debug:
+      msg: "{{ gretting | upper }}"
+  - Name: convert to lower case
+    vars:
+      gretting: "Hello Naveen"
+    ansible.builtin.debug:
+      msg: "{{ gretting | lower }}"
+  # or  we can right like this as well
+  # - Name: convert to lower case
+  #   ansible.builtin.debug:
+  #     msg: "{{helo naveen | lower }}"
+  
+      
