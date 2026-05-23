@@ -1,0 +1,10 @@
+- Name: conmmand vs shell
+  Hosts: local
+  connection: loacl
+  Tasks:
+  - Name: execute the commands
+    ansible.builtin.command: ls -ltr > /temp/output.txt
+# we get error bcz its shall command
+  - Name: execute the shall
+    ansible.builtin.shall: ls -ltr > /temp/output.txt
+
