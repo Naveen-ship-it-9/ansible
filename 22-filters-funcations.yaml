@@ -1,0 +1,11 @@
+- Name: demo on filters/functions
+  Hosts: web
+  Become: yes
+  Tasks:
+  - Name: print default varible
+    ansible.builtin.debug:
+      msg: "heloo {{course}}"
+# if i run this code i get error bcz i did not mention varible in any place
+# os we have defult varible
+      msg: "heloo {{ course | default ('ansible') }}"
+
