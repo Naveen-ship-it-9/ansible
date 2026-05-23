@@ -1,0 +1,17 @@
+#general removeing 
+
+- Name: uninstalling packages
+  Hosts: web
+  become: yes
+  Tasks:
+    - Name: uninstalling negnix
+      ansible.duiltin.debug:
+        Name: negnix
+        state: absent
+    - Name: removing mqsyl
+      ansibel.builtin.pacakage:
+        Name: mysql
+        state: absent
+
+# removing packs using loops
+
