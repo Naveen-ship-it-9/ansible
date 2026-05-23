@@ -15,3 +15,27 @@
 
 # removing packs using loops
 
+- Name: removing packs
+  Hosts: web
+  Become: yes
+  vars:
+    packages_to_install:
+      - git
+      - mysql
+    pacakages_to_uninstall:
+      - Nginx
+      - postfix
+  Tasks:
+  - Name: installing
+    ansible.builtin.pacakage:
+      Name: "{{ item }}"
+      satae: present
+    loop: "{{packages_to_install }}"
+    when: ansible_os_family == "redhat"
+  - Name: uninstalling
+    ansible.builtin.pacakage:
+      Name: "{{ item }}"
+      state: absent
+    loop: "{{ pacakages_to_uninstall }}"
+    when: ansible_os_family == "Debian"
+

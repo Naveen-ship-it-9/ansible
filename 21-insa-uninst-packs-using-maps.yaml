@@ -1,0 +1,14 @@
+- Name: install and uninstall packs
+  Hosts: web
+  Become: yes
+  Tasks:
+  - Name: install and uninstall packs
+    ansible.builtin.pacakage:
+      Name:
+      state:
+    loop:
+    - { name: 'mysql', state: 'present' }
+    - { Name: 'nginx', state: 'absent' }
+    - { Name: 'postfix' state: 'absent'}
+    - { Name: 'httpd', state: 'absent' }
+
