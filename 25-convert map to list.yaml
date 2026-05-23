@@ -1,0 +1,13 @@
+- Name: convert map to list
+  Hsost: local
+  connection: local
+  Tasks:
+  - Name: convert map to list
+    vars:
+      course:
+        Name: "devops with aws"
+        duration: "120"
+        trainer: "Naveen"
+    ansible.builtin.debug:
+      msg: "{{ course | dict2items }}"
+      
