@@ -1,0 +1,13 @@
+- Name: check ip address correct or not
+  Hosts: web
+  Become: yes
+  vars:
+    myip: "321.564.897"
+  Tasks:
+  - Name: check ip address
+    ansible.builtin.bedug:
+      msg: "{{ myip | ansible.utils.ipv4 }}"
+
+# once we run this play book we get error bcz it need python library in that error it say 
+# what library need and give pip3.9 install netaddr
+
