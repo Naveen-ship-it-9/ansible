@@ -26,7 +26,7 @@
   - name: print the statistics
     ansible.builtin.debug:
       msg: "{{ ansible_facts }}"
-      
+
   - name: install pack if dnf
     ansible.builtin.dnf:
       name: "{{ item }}"
@@ -34,7 +34,7 @@
     loop:
     - nginx
     - httpd
-    when: ansible_os_family == "redhat"
+    when: ansible_os_family == "RedHat"
 
   - name: install pack if apt
     ansible.builtin.apt:
