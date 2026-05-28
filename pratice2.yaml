@@ -22,7 +22,7 @@
 
 - name: install pack if it is dnf
   hosts: web
-  become: true
+  become: yes
   tasks:
   - name: install pack if dnf
     ansible.builtin.dnf:
