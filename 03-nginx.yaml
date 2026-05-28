@@ -5,11 +5,11 @@
   - name: installing nginx
     ansible.builtin.package:
       name: nginx
-      sate: present
+      state: present
   - name: run nginx
     ansible.builtin.service:
       name: nginx
-      sate: started
+      state: started
       enable: yes
 
 
