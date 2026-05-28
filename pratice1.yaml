@@ -11,6 +11,7 @@
     ansible.builtin.package:
       name: "{{ item }}"
       state: absent
+    loop: "{{ packages }}"
   - name: printing the output
     ansible.builtin.debug:
       msg: "uninstalling packages are {{ packages }}"
