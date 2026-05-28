@@ -26,8 +26,13 @@
   tasks:
   - name: install pack if dnf
     ansible.builtin.dnf:
-      name: "{{ item }}"
+      name: "installing {{ item }}"
       state: present
+    loop:
+    - nginx
+  - name: installing nginx
+    ansible.builtin.debug:
+      msg: "{{ item }}"
     loop:
     - nginx
     when: ansible_os_family == "RedHat"
