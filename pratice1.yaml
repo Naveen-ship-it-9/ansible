@@ -1,0 +1,17 @@
+- name: uninstalling the packs
+  hosts: web
+  become: yes
+  vars:
+    packages:
+      - nginx
+      - postfix
+      - httpd
+  tasks:
+  - name: uninstalling the pacakage
+    ansible.builtin.package:
+      name: "{{ iteam }}"
+      state: absent
+  - name: printing the output
+    ansible.builtin.debug:
+      msg: "uninstalling packages are {{ packages }}"
+    loop: "{{ packages }}"
