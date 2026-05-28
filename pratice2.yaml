@@ -23,10 +23,6 @@
 - name: install pack if it is dnf
   hosts: web
   tasks:
-  - name: print the statistics
-    ansible.builtin.debug:
-      msg: "{{ ansible_facts }}"
-
   - name: install pack if dnf
     ansible.builtin.dnf:
       name: "{{ item }}"
