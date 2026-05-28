@@ -1,0 +1,7 @@
+[local]
+localhost
+
+[web:var]
+course:"ansible"
+Duration:"10HRS"
+Trainer:"Naveen"
