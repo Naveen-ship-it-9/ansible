@@ -26,7 +26,7 @@
       state: started
       enabled: yes
     loop: "{{ pacakge }}"
-  - nanme: showing msg
+  - name: showing msg
     ansible.builtin.debug:
       msg: "starting the packs {{ item }}"
     loop: "{{ pacakge }}"
