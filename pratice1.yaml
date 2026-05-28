@@ -14,5 +14,5 @@
     loop: "{{ packages }}"
   - name: printing the output
     ansible.builtin.debug:
-      msg: "uninstalling packages are {{ packages }}"
+      msg: "uninstalling packages are {{ item }}"
     loop: "{{ packages }}"
