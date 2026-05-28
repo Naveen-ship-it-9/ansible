@@ -3,11 +3,9 @@
   become: yes
   vars:
     pacakge:
-      - mysql
       - nginx
-      - git
-      - nodejs
-      - java
+      - postfix
+      - httpd
   tasks:
   - name: insatlling
     ansible.builtin.package:
