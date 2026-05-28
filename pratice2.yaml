@@ -20,36 +20,71 @@
 #     when: ansible_os_family == "Debian"
 
 
+# - name: install pack if it is dnf
+#   hosts: web
+#   become: yes
+#   tasks:
+#   - name: install pack if dnf
+#     ansible.builtin.dnf:
+#       name: "installing {{ item }}"
+#       state: present
+#     loop:
+#       - nginx
+#     when: ansible_os_family == "RedHat"
+  
+#   - name: installing nginx
+#     ansible.builtin.debug:
+#       msg: "installed {{ item }}"
+#     loop:
+#       - nginx
+  
+#   - name: start the service
+#     ansible.builtin.service:
+#       name: "starting service is {{ item }}"
+#       state: started
+#       enabled: yes
+#     loop:
+#       - nginx
+
+#   - name: install pack if apt
+#     ansible.builtin.apt:
+#       name: "{{ item }}"
+#       state: present
+#     loop:
+#       - nginx
+#     when: ansible_os_family == "Debian"
+
+
 - name: install pack if it is dnf
   hosts: web
   become: yes
   tasks:
-  - name: install pack if dnf
-    ansible.builtin.dnf:
-      name: "installing {{ item }}"
-      state: present
-    loop:
-      - nginx
-    when: ansible_os_family == "RedHat"
-  
-  - name: installing nginx
-    ansible.builtin.debug:
-      msg: "installed {{ item }}"
-    loop:
-      - nginx
-  
-  - name: start the service
-    ansible.builtin.service:
-      name: "starting service is {{ item }}"
-      state: started
-      enabled: yes
-    loop:
-      - nginx
+    - name: install pack if dnf
+      ansible.builtin.dnf:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - nginx
+      when: ansible_os_family == "RedHat"
 
-  - name: install pack if apt
-    ansible.builtin.apt:
-      name: "{{ item }}"
-      state: present
-    loop:
-      - nginx
-    when: ansible_os_family == "Debian"
+    - name: installing nginx
+      ansible.builtin.debug:
+        msg: "installed {{ item }}"
+      loop:
+        - nginx
+
+    - name: start the service
+      ansible.builtin.service:
+        name: "{{ item }}"
+        state: started
+        enabled: yes
+      loop:
+        - nginx
+
+    - name: install pack if apt
+      ansible.builtin.apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - nginx
+      when: ansible_os_family == "Debian"
