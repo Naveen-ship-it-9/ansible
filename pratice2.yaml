@@ -33,7 +33,6 @@
       state: present
     loop:
     - nginx
-    - httpd
     when: ansible_os_family == "RedHat"
 
   - name: install pack if apt
@@ -42,5 +41,4 @@
       state: present
     loop:
     - nginx
-    - httpd
     when: ansible_os_family == "Debian"
