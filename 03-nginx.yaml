@@ -4,13 +4,13 @@
   tasks:
   - name: Install Nginx
     ansible.builtin.package:
-      name: Nginx
-      sate: Present
+      name: nginx
+      sate: present
   - name: run Nginx
     ansible.builtin.service:
-      name: Nginx
+      name: nginx
       sate: started
-      enable: Yes
+      enable: yes
 
 
 
