@@ -30,12 +30,21 @@
       state: present
     loop:
     - nginx
+    when: ansible_os_family == "RedHat"
+  
   - name: installing nginx
     ansible.builtin.debug:
-      msg: "{{ item }}"
+      msg: "installed {{ item }}"
     loop:
     - nginx
-    when: ansible_os_family == "RedHat"
+  
+  - name: start the service
+    ansible.builtin.service:
+      name: "starting service is {{ item }}"
+      state: started
+      enabled: yes
+    loop:
+    - nginx
 
   - name: install pack if apt
     ansible.builtin.apt:
