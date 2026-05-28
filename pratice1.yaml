@@ -9,7 +9,7 @@
   tasks:
   - name: uninstalling the pacakage
     ansible.builtin.package:
-      name: "{{ iteam }}"
+      name: "{{ item }}"
       state: absent
   - name: printing the output
     ansible.builtin.debug:
