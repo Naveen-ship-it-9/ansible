@@ -1,24 +1,35 @@
-- Name: Nginx install and run
-  Host: wed
+- name: Nginx install and run
+  hosts: wed
   become: Yes
-  Tasks:
-  - Name: Install Nginx
+  tasks:
+  - name: Install Nginx
     ansible.builtin.package:
-    Name: Nginx
-    sate: Present
-  - Name: run Nginx
+      name: Nginx
+      sate: Present
+  - name: run Nginx
     ansible.builtin.service:
-    Name: Nginx
-    sate: started
-    enable: Yes
-- Name: install and run my sql
-  Host: web
-  Tasks:
-  - Name: install mysql
-    ansibe.builtin:package:
-    Name: mysql
-    sate: install
-  - Name: run mysql
-    ansible.builtin.service:
-    sate: started
-    enable: No
+      name: Nginx
+      sate: started
+      enable: Yes
+
+
+
+
+
+
+
+
+
+
+
+# - name: install and run my sql
+#   Host: web
+#   Tasks:
+#   - Name: install mysql
+#     ansibe.builtin:package:
+#     Name: mysql
+#     sate: install
+#   - Name: run mysql
+#     ansible.builtin.service:
+#     sate: started
+#     enable: No
