@@ -15,7 +15,7 @@
       state: present
     loop: "{{ pacakge }}"
 
-  - nanme: showing msg
+  - name: showing msg
     ansible.builtin.debug:
       msg: "instaiing is: {{ item }}"
     loop: "{{ pacakge }}"
