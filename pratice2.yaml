@@ -1,8 +1,30 @@
+# - name: install pack if it is dnf
+#   hosts: web
+#   tasks:
+#   - name: install pack if dnf
+#     ansible.builtin.package:
+#       name: "{{ item }}"
+#       state: present
+#     loop:
+#     - nginx
+#     - httpd
+#     when: ansible_os_family == "redhat"
+
+#   - name: install pack if apt
+#     ansible.builtin.package:
+#       name: "{{ item }}"
+#       state: present
+#     loop:
+#     - nginx
+#     - httpd
+#     when: ansible_os_family == "Debian"
+
+
 - name: install pack if it is dnf
   hosts: web
   tasks:
   - name: install pack if dnf
-    ansible.builtin.package:
+    ansible.builtin.dnf:
       name: "{{ item }}"
       state: present
     loop:
@@ -10,8 +32,8 @@
     - httpd
     when: ansible_os_family == "redhat"
 
-  - name: install pack if dnf
-    ansible.builtin.package:
+  - name: install pack if apt
+    ansible.builtin.apt:
       name: "{{ item }}"
       state: present
     loop:
