@@ -1,0 +1,34 @@
+- name: Installing packages
+  hosts: web
+  become: yes
+  vars:
+    pacakge:
+      - mysql
+      - nginx
+      - git
+      - nodejs
+      - java
+  tasks:
+  - name: insatlling
+    ansible.builtin.package:
+      name: "{{ item }}"
+      state: present
+    loop: "{{ pacakge }}"
+
+  - nanme: showing msg
+    ansible.builtin.debug:
+      msg: "instaiing is: {{ item }}"
+    loop: "{{ pacakge }}"
+
+  - name: run the installed packages
+    ansible.builtin.service:
+      name: "{{ item }}"
+      state: started
+      enabled: yes
+    loop: "{{ pacakge }}"
+  - nanme: showing msg
+    ansible.builtin.debug:
+      msg: "starting the packs {{ item }}"
+    loop: "{{ pacakge }}"
+    
+    

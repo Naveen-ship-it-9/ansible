@@ -5,7 +5,7 @@
   become: yes
   Tasks:
     - Name: uninstalling negnix
-      ansible.duiltin.debug:
+      ansible.duiltin.pacakage:
         Name: negnix
         state: absent
     - Name: removing mqsyl
