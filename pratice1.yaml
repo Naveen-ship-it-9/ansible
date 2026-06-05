@@ -1,6 +1,7 @@
 - name: uninstalling the packs
-  hosts: web
-  become: yes
+  hosts: local
+  #become: yes
+  connection: local
   vars:
     packages:
       - nginx
