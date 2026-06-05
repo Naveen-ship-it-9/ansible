@@ -5,7 +5,7 @@
     pacakge:
       - nginx
       - postfix
-      - httpd
+      #- httpd
   tasks:
   - name: insatlling
     ansible.builtin.package:
